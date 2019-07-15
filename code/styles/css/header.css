@@ -1,0 +1,44 @@
+/*header composition*/
+header {
+	border-bottom: 3px solid #000;
+
+	height: 20vw;
+	grid-template-columns: 1fr 1fr;
+
+	background-color: var(--cclc-gray);
+	color: #fff;
+}
+
+.header__logo, .header__menu {
+    display: flex;
+	align-items: center;
+}
+.header__logo {
+	justify-content: flex-start;
+}
+
+.header__logo div {
+	cursor: pointer;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+}
+
+.header__logo img {
+	width: 10vw;
+}
+
+.header__logo h1 {
+	color: #fff;
+}
+
+.header__menu {
+	justify-content: flex-end;
+}
+
+.header__menu select {
+	cursor: pointer;
+}
+.header__menu option {
+
+}

@@ -1,0 +1,41 @@
+.fadeIn {
+    -webkit-animation: fadeIn 3s forwards;
+    -moz-animation: fadeIn 3s forwards;
+    -o-animation: fadeIn 3s forwards;
+    animation: fadeIn 3s forwards;
+}
+.fadeOut {
+    -webkit-animation: fadeOut 3s forwards;
+    -moz-animation: fadeOut 3s forwards;
+    -o-animation: fadeOut 3s forwards;
+    animation: fadeOut 3s forwards;
+}
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.flyInLeft {
+    -webkit-animation: flyInLeft 2s forwards;
+    -moz-animation: flyInLeft 2s forwards;
+    -o-animation: flyInLeft 2s forwards;
+    animation: flyInLeft 2s forwards;
+}
+.flyInRight {
+    -webkit-animation: flyInRight 2s forwards;
+    -moz-animation: flyInRight 2s forwards;
+    -o-animation: flyInRight 2s forwards;
+    animation: flyInRight 2s forwards;
+}
+@keyframes flyInLeft {
+    0% {left: -500px;}
+    100% {left: 5vw;}
+}
+@keyframes flyInRight {
+    0% {left: 750px;}
+    100% {left: 5vw;}
+}

@@ -1,0 +1,39 @@
+.main--modules {
+	grid-template-columns: 2fr 2fr 2fr; /*final value should be same as width of right arrow*/
+	grid-template-rows: 5vw 1fr 8vw;
+	grid-template-areas: ". title title" "chap_buttons media media" "mod_buttons mod_buttons mod_buttons";
+}
+
+.main__media--modules {
+	border-top-left-radius: 0;
+}
+
+.main__chapterButtons {
+	grid-area: chap_buttons;
+	padding-top: 1vh;
+}
+.main__chapterButtons div {
+	cursor: pointer;
+	margin-bottom: 1vh;
+}
+
+.main__chapterButtons>div.active {
+	text-decoration: underline;
+	text-decoration-color: var(--cclc-gray);
+}
+
+.main__chapterButtons div:hover {
+	text-decoration: underline;
+	text-decoration-color: var(--cclc-lightgray);
+}
+
+.main__modNavButtons {
+	grid-area: mod_buttons;
+	display: flex;
+	justify-content: center;
+}
+
+.main__modNavButtons>img {
+	cursor: pointer;
+}
+

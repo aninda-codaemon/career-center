@@ -1,0 +1,90 @@
+:root {
+	--cclc-gray: #333E48;
+	--cclc-lightgray: #aaaaaa;
+	--cclc-red: #E84E3D;
+	--cclc-purple: #743088;
+	--cclc-green: #A3C961;
+	--cclc-blue: #4CC0EF;
+	--cclc-yellow: #F9BE00;
+}
+
+@font-face {
+	font-family: 'proxima-nova';
+	font-style: normal;
+	font-weight: 100;
+	src: local('proximanovalight'), url('fonts/proximanovalight.otf') format('truetype');
+}
+
+/*reset & load fonts*/
+*, html {
+	box-sizing: border-box;
+
+	margin-block-start: 0;
+	margin-block-end: 0;
+
+	font-family: 'proxima-nova', sans-serif;
+	font-size: 2vw;
+	font-weight: 100;
+}
+
+@media screen and (min-width: 800px) {
+	*, html {
+	   /*font-size: 16px !important;*/
+	}
+}
+
+/*general composition*/
+body {
+	margin: 0 !important;
+	border: 3px solid #000;
+}
+
+header, main, nav {
+	display: grid;
+	padding: 5vw;
+}
+
+/*nav snakes*/
+/*nav folders*/
+nav {
+	height: 50vw;
+
+	padding: 5vw;
+
+	position: relative;
+
+	border-top: 7px solid;
+	border-bottom: none;
+	border-image: linear-gradient(to right, var(--cclc-red) 25%, var(--cclc-purple) 25%, var(--cclc-purple) 50%, var(--cclc-blue) 50%, var(--cclc-blue) 75%, var(--cclc-yellow) 75%) 4;
+}
+
+iframe {
+	width: 100%;
+	/*height dynamic js load*/
+	border-width: 0px;
+    border-style: none;
+    border-color: inherit;
+    border-image: inherit;
+}
+
+video {
+	height: auto;
+	width: 100%;
+}
+
+img {
+	width: 5vw;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+  color: inherit;
+}
+
+
+
+

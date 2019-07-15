@@ -1,0 +1,27 @@
+
+/*main intro and modules*/
+.main--landing {
+	grid-template-rows: 1fr 10fr;
+	grid-template-areas: "title" "media";
+}
+
+.main__title, .btn--main__chapters, .main__media {
+	width: 100%;
+}
+
+.main__title {
+	display: grid;
+
+	grid-area: title;
+	padding-bottom: 5px;
+}
+
+.main__title h2 {
+	align-self: flex-end;
+
+	font-size: 2.5vw !important;
+}
+
+.main__media {
+	grid-area: media;
+}

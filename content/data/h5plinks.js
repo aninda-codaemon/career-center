@@ -1,0 +1,1 @@
+let h5plinks = {"mod1": {"chapters": ["https://h5p.org/h5p/embed/528235"], "exercises": ["https://h5p.org/h5p/embed/514461", "https://h5p.org/h5p/embed/514461", "https://h5p.org/h5p/embed/513134", "https://h5p.org/h5p/embed/527763"]}}

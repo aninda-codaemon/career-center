@@ -1,0 +1,51 @@
+.nav--snakes {
+	display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(9, 1fr);
+
+    grid-gap: 2vw;
+
+    position: relative;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.nav__dimmer {
+
+    position: absolute;
+    top: 0; right: 0; left: 0; bottom: 0;
+    margin: auto;
+
+    height: 100%;
+    width: 100%;
+
+    z-index: 1;
+
+    background-color: #000 !important;
+    opacity: 0.75;
+}
+
+.nav__modal {
+
+    /*center modal in container*/
+    position: absolute;
+    top: 0; right: 0; left: 0; bottom: 0;
+    margin: auto;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    height: 50%;
+    width: 50%;
+
+    background-color: #fff;
+
+    z-index: 2;
+}
+
+.snakeImg, .fdfImg {
+    cursor: pointer;
+}

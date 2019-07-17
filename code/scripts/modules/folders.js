@@ -63,12 +63,13 @@ const updateFolders = function(mod="mod1") {
     let content;
     let lenArr = [];
     folders.forEach(function(f) {
+      console.log(f);
         //online/offline mode for exercises only
         //what if exercises are empty?
         //add a line saying "This module has no exercises."
     
-        
-        if (folders.indexOf(f)==0) {
+        if (f === 'exercises') {
+          if (folders.indexOf(f)==0) {
             if (navigator.onLine) {
                 content = h5plinks["mod1"].exercises //mod1 becomes mod
                 online=true;
@@ -76,12 +77,17 @@ const updateFolders = function(mod="mod1") {
                 content = ["1", "2", "3"]
                 online=false;
             }
-        } else {
-            content = ["1", "2", "3", "1", "2", "3", "1", "2", "3"]
-            online=false;
-        }
-        updateFolder(f, content, online)
-        lenArr.push(content.length);
+          } else {
+              content = ["1", "2", "3", "1", "2", "3", "1", "2", "3"]
+              online=false;
+          }
+          updateFolder(f, content, online)
+          lenArr.push(content.length);
+        } else if (f === 'outils') {
+          updateOutils(mod);
+        } else if (f === 'a-noter') {
+          updateNoter(mod);
+        } 
     })
 
     //programmatically determine height of nav on mod change
@@ -112,6 +118,38 @@ const updateFolder = function(folderName, content, online) {
             addEl("li", folderEl, {}, 0, "<a href='"+href+"'>"+folderText+num+"</a>")
         }
     }
+}
+
+const updateOutils = function(module_name="mod1") {
+  let folderEl = document.querySelector("#outils-folder>ul");
+  let folderContent = [];
+  try{
+    folderContent = h5plinks[module_name].outils;    
+    if (folderContent) {
+      let i = 1;
+      folderContent.forEach(function(fname) {        
+        let filePath = siteData.path.outils + "/" + module_name + "/outils/" + fname['file'];
+        addEl("li", folderEl, {}, 0, "<a href='"+filePath+"' target='_blank'>"+i+": "+fname['file_name'].replace(/_/g, " ")+"</a>");
+        i++;
+      });
+    }
+  } catch(err) {console.log('Outils content not found for ' + module_name); }    
+}
+
+const updateNoter = function(module_name="mod1") {
+  let folderEl = document.querySelector("#a-noter-folder>ul");
+  let folderContent = [];
+  try{
+    folderContent = h5plinks[module_name].noter;    
+    if (folderContent) {
+      let i = 1;
+      folderContent.forEach(function(fname) {        
+        let filePath = siteData.path.outils + "/" + module_name + "/noter/" + fname['file'];
+        addEl("li", folderEl, {}, 0, "<a href='"+filePath+"' target='_blank'>"+i+": "+fname['file_name'].replace(/_/g, " ")+"</a>");
+        i++;
+      });
+    }
+  } catch(err) {console.log('Outils content not found for ' + module_name); }    
 }
 
 document.addEventListener("click", function(ev) {

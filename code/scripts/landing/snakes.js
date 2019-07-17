@@ -36,6 +36,7 @@ const genSnakes = function(snakeRows=3, modalRows=3) {
             addEl("div", nav, {class: "fdfImg"}, backwardsCounter, "FDF");
             for (let p=0; p<fdfModuleCount; p++) {
                 let path = genImgPath("mod1", "large") //correct mod = "mod"+imgCount
+                path = genSnakesImgPath('mod'+imgCount, 'thumb');
                 addEl("div", modal, {class: "snakeDiv", id: "mod"+imgCount}, 0, "<img class='snakeImg' src='"+path+"' alt='module "+imgCount+" thumbnail'>") 
                 imgCount++;
             }
@@ -45,6 +46,7 @@ const genSnakes = function(snakeRows=3, modalRows=3) {
                 //odd rows simply add elements
                 if (i%2==0) {
                     let path = genImgPath("mod1", "large") //correct modnum = "mod"+imgCount
+                    path = genSnakesImgPath('mod'+imgCount, 'thumb');
                     addEl("div", nav, {class: "snakeDiv", id: "mod"+imgCount}, backwardsCounter, "<img class='snakeImg' src='"+path+"' alt='module "+imgCount+" thumbnail'>") 
                     imgCount++;
                 } else {
@@ -54,6 +56,7 @@ const genSnakes = function(snakeRows=3, modalRows=3) {
                 //even rows count backwards
                 if (i%2==0) {
                     let path = genImgPath("mod1", "large") //correct modnum = "mod"+imgCount
+                    path = genSnakesImgPath('mod'+imgCount, 'thumb');
                     addEl("div", nav, {class: "snakeDiv", id: "mod"+imgCount}, backwardsCounter, "<img class='snakeImg' src='"+path+"' alt='module "+imgCount+" thumbnail'>") 
                 } else {
                     if (backwardsCounter==0) {

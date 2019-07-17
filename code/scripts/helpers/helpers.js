@@ -232,6 +232,10 @@ const genImgPath = function(mod="mod1", size="large") {
     return "../content/modules/"+mod+"/images/"+size.toLowerCase()+"/"+mod+".png";
 }
 
+const genSnakesImgPath = function(mod="mod1", size="thumb") {
+  return "../content/modules/"+mod+"/images/"+size.toLowerCase()+"/"+mod+".jpg";
+}
+
 const genMediaPath = function(mod="mod1", subFolder="chap1") {
     if (mod=="landing") {
         return "content/landing/offline/landing.mp4";
@@ -255,5 +259,8 @@ const siteData = {
         arrowRight: function() {return genPath(this.iconPath, "arrow-right", "svg")},
         arrowCurveLeft: function() {return genPath(this.iconPath, "arrow-curve-left", "svg")},
         arrowCurveDown: function() {return genPath(this.iconPath, "arrow-curve-down", "svg")}
+    },
+    path: {
+      outils: 'content/modules/'
     }
 }

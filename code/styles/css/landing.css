@@ -1,6 +1,7 @@
 
 /*main intro and modules*/
 .main--landing {
+  padding: 0px 150px 40px 150px;
 	grid-template-rows: 1fr 10fr;
 	grid-template-areas: "title" "media";
 }

@@ -1,16 +1,14 @@
 /*header composition*/
 header {
 	border-bottom: 3px solid #000;
-
-	height: 20vw;
+	height: 10vw;
 	grid-template-columns: 1fr 1fr;
-
 	background-color: var(--cclc-gray);
 	color: #fff;
 }
 
 .header__logo, .header__menu {
-    display: flex;
+  display: flex;
 	align-items: center;
 }
 .header__logo {
@@ -33,12 +31,16 @@ header {
 }
 
 .header__menu {
+  margin-top: -75px !important;
 	justify-content: flex-end;
 }
 
 .header__menu select {
 	cursor: pointer;
+  font-size: 20px;
+  padding: 2px;  
+  margin: 11px;
 }
-.header__menu option {
-
+.header__menu select > option {
+  font-size: 18px;
 }

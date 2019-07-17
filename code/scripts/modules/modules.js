@@ -30,7 +30,7 @@ const setSelect = function(mod="mod1") {
 
 const updateModule = function(mod="mod1", chap="chap1") {
     //refresh prev/next buttons - could be optomized if only one load
-    document.querySelector(".main__modNavButtons").innerHTML = "<img class='icon' id='prevBtn' src='content/icons/arrow-left.svg' alt='previous module'><img class='icon' id='nextBtn' src='content/icons/arrow-right.svg' alt='next module'>";
+    document.querySelector(".main__modNavButtons").innerHTML = "<img class='icon' id='prevBtn' src='content/icons/arrow-left.svg' alt='previous module'><span class='spanNavLeft'>Module précédent</span> <span class='spanNavRight'>Module suivant</span><img class='icon' id='nextBtn' src='content/icons/arrow-right.svg' alt='next module'>";
     
     updateTitle(mod);
 
@@ -45,7 +45,9 @@ const updateModule = function(mod="mod1", chap="chap1") {
     for (let i=0; i<newButtons.length; i++) {
         //distinguish i for index of button title and actual chapNum
         let chapNum = i+1;
-        addEl("div", chapButtons, {id:"chap"+chapNum}, 0, chapNum+". " + newButtons[i]);
+        addEl("a", chapButtons, {id:"chap"+chapNum, class: 'mod_chapter', href: 'javascript: void(0)'}, 0, "<div id='chap"+chapNum+"' class='chapterButton_leftNum'>"+chapNum+":</div><div id='chap"+chapNum+"' class='chapterButton_rightNum'>" + newButtons[i]+"</div>");
+        // addEl("div", chapButtons, {id:"chap"+chapNum, class: 'mod_chapter'}, 0, ""+chapNum+". " + newButtons[i]+"");
+        // addEl("div", chapButtons, {id:"chap"+chapNum, class: 'mod_chapter'}, 0, "<div style='width: 20px; float: left;'>"+chapNum+"</div> <div style='float: left; width: calc(100% - 32px);'>" + newButtons[i]+"</div>");
     }
 
     //update folders
@@ -53,7 +55,6 @@ const updateModule = function(mod="mod1", chap="chap1") {
 
     //update chapter
     updateChapter(chap)
-
 }
 
 const updateChapter = function(chap="chap1") {
@@ -65,19 +66,22 @@ const updateChapter = function(chap="chap1") {
     }
 
     //update active chapter button
-    document.querySelectorAll(".main__chapterButtons>div").forEach(b=>b.classList.remove("active"));
-    document.querySelectorAll(".main__chapterButtons>div")[chap.match(/\d{1,2}/)[0]-1].classList.add("active")
+    // document.querySelectorAll(".main__chapterButtons>div.mod_chapter").forEach(b=>b.classList.remove("active"));
+    document.querySelectorAll(".main__chapterButtons>a.mod_chapter").forEach(b=>b.classList.remove("active"));
+
+    // document.querySelectorAll(".main__chapterButtons>div.mod_chapter")[chap.match(/\d{1,2}/)[0]-1].classList.add("active")
+    document.querySelectorAll(".main__chapterButtons>a.mod_chapter")[chap.match(/\d{1,2}/)[0]-1].classList.add("active");
 
     let mod = location.hash.match(/mod\d{1,2}/)[0]
     updateMedia(mod, chap);
 }
 
 const bindChapterButtons = function() {
-    document.querySelectorAll(".main__chapterButtons>div").forEach(btn=>btn.addEventListener("click", function(ev) {
-        updateChapter(ev.target.id)
+    document.querySelectorAll(".main__chapterButtons>a.mod_chapter").forEach(btn=>btn.addEventListener("click", function(ev) {
+      ev.preventDefault();      
+      updateChapter(ev.target.id);
     }))
 }
-
 
 const bindPrevNextButtons = function() {
     document.querySelectorAll(".main__modNavButtons>img").forEach(btn=>btn.addEventListener("click", function(ev) {

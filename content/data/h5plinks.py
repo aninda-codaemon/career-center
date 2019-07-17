@@ -20,6 +20,14 @@ def getLinks(path):
             linkList.append(url)
     return linkList
 
+def getOtherFiles(path):
+  linkList = []
+  for f in os.listdir(path):
+    f_name = f.rsplit('.', 1)[0]
+    content = {'file_name': f_name, 'file': f}
+    linkList.append(content)
+  return linkList
+
 data = {}
 
 modulesPath = os.path.dirname(os.getcwd())+"/modules"
@@ -28,9 +36,14 @@ for m in modulesDirectories:
     data[m] = {}
     chaptersPath = modulesPath +"/"+m+"/chapters/online"
     exercisesPath = modulesPath +"/"+m+"/exercises/online"
+    outilsPath = modulesPath +"/"+m+"/outils"
+    noterPath = modulesPath +"/"+m+"/noter"
 
     data[m]["chapters"] = getLinks(chaptersPath)
     data[m]["exercises"] = getLinks(exercisesPath)
+    data[m]["outils"] = getOtherFiles(outilsPath)
+    data[m]["noter"] = getOtherFiles(noterPath)
+    
 
 #finally dump captions into js file as json structure
 import json

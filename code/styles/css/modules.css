@@ -1,7 +1,8 @@
 .main--modules {
 	grid-template-columns: 2fr 2fr 2fr; /*final value should be same as width of right arrow*/
 	grid-template-rows: 5vw 1fr 8vw;
-	grid-template-areas: ". title title" "chap_buttons media media" "mod_buttons mod_buttons mod_buttons";
+  grid-template-areas: ". title title" "chap_buttons media media" "mod_buttons mod_buttons mod_buttons";
+  padding: 0px 30px 10px 30px;
 }
 
 .main__media--modules {
@@ -12,25 +13,74 @@
 	grid-area: chap_buttons;
 	padding-top: 1vh;
 }
-.main__chapterButtons div {
+/* .main__chapterButtons div.mod_chapter {
+	cursor: pointer;
+	margin-bottom: 1vh;
+} */
+.main__chapterButtons a.mod_chapter {
+  display: block;
 	cursor: pointer;
 	margin-bottom: 1vh;
 }
 
-.main__chapterButtons>div.active {
+/* .main__chapterButtons>div.active {
+	text-decoration: underline;
+	text-decoration-color: var(--cclc-gray);
+} */
+.main__chapterButtons>a.active {
 	text-decoration: underline;
 	text-decoration-color: var(--cclc-gray);
 }
 
-.main__chapterButtons div:hover {
+/* .main__chapterButtons div:hover {
 	text-decoration: underline;
 	text-decoration-color: var(--cclc-lightgray);
+} */
+.main__chapterButtons a:hover {
+	text-decoration: underline;
+	text-decoration-color: var(--cclc-lightgray);
+}
+
+div.chapterButton_leftNum {
+  width: 20px; 
+  float: left;
+}
+div.chapterButton_rightNum {
+  float: left;
+  margin-left: 5px;
+  width: calc(100% - 32px);
 }
 
 .main__modNavButtons {
 	grid-area: mod_buttons;
 	display: flex;
-	justify-content: center;
+	/* justify-content: center; */
+}
+
+#prevBtn {
+  width: 5%;
+  margin-left: 434px;
+}
+
+#nextBtn {
+  width: 5%;
+  margin-left: -17px;
+}
+
+.main__modNavButtons > span {
+  display: block;
+  width: 400px;
+  margin-top: 39px;
+}
+
+.main__modNavButtons > span.spanNavLeft {
+  margin-left: 5px;
+}
+
+.main__modNavButtons > span.spanNavRight {
+  margin-right: -84px;
+  margin-left: 116px;
+  width: 285px;
 }
 
 .main__modNavButtons>img {
